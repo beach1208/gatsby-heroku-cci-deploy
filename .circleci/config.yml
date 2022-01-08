@@ -15,6 +15,7 @@ jobs:
       - checkout
       - run: echo "Hello World"
   heroku/deploy-via-git:
+    circleci_ip_ranges: true
     docker:
       - image: cimg/node:17.3.0
     steps:
