@@ -23,7 +23,7 @@ parameters:
     default: false
 workflows:
   build_and_deploy:
-    # when: << pipeline.parameters.run-schedule >>
+    when: << pipeline.parameters.run-schedule >>
     jobs:
       - build
       - heroku/deploy-via-git
