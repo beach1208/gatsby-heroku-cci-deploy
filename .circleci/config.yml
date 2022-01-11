@@ -23,11 +23,7 @@ parameters:
     default: false
 workflows:
   build_and_deploy:
-    when: << pipeline.parameters.run-schedule >>
-    # when:
-    #   and:
-    #     - equal: [ scheduled_pipeline, << pipeline.trigger_source >> ]
-    #     - equal: [ "test-schedule", << pipeline.schedule.name >> ]
+    # when: << pipeline.parameters.run-schedule >>
     jobs:
       - build
       - heroku/deploy-via-git
