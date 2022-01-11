@@ -17,8 +17,6 @@ jobs:
     steps:
       - checkout
       - run: node --version
-    parallelism: 2
-    resource_class: xlarge
 parameters:
   run-schedule:
     type: boolean
