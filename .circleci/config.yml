@@ -1,6 +1,6 @@
 version: 2.1
-orbs:
-  heroku: circleci/heroku@0.0.10
+# orbs:
+#   heroku: circleci/heroku@0.0.10
 
 jobs:
   mac-runner:
@@ -8,13 +8,13 @@ jobs:
     resource_class:  myorg-namespace/mac-runner
     steps:
       - run: echo "Hello Runner"
-  build:
-    circleci_ip_ranges: true
-    docker:
-      - image: cimg/node:17.3.0
-    steps:
-      - checkout
-      - run: echo "Hello World"
+  # build:
+  #   circleci_ip_ranges: true
+  #   docker:
+  #     - image: cimg/node:17.3.0
+  #   steps:
+  #     - checkout
+  #     - run: echo "Hello World"
 #   heroku/deploy-via-git:
 #     circleci_ip_ranges: true
 #     docker:
@@ -28,7 +28,5 @@ jobs:
 #     default: false
 workflows:
   build_and_deploy:
-    when: << pipeline.parameters.run-schedule >>
     jobs:
       - mac-runner
-      - build
