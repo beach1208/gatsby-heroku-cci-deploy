@@ -3,18 +3,17 @@ version: 2.1
 #   heroku: circleci/heroku@0.0.10
 
 jobs:
-  mac-runner:
-    machine: true
-    resource_class:  myorg-namespace/mac-runner
+  build:
+    docker:
+      - image: cimg/node:17.3.0
     steps:
-      - run: echo "Hello Runner"
-  # build:
-  #   circleci_ip_ranges: true
-  #   docker:
-  #     - image: cimg/node:17.3.0
-  #   steps:
-  #     - checkout
-  #     - run: echo "Hello World"
+      - checkout
+      - run: echo "Hello World"
+  mac-runner:
+      machine: true
+      resource_class:  myorg-namespace/mac-runner
+      steps:
+        - run: echo "Hello Runner"
 #   heroku/deploy-via-git:
 #     circleci_ip_ranges: true
 #     docker:
@@ -29,4 +28,5 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
+      - build
       - mac-runner
