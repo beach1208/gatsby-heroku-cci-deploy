@@ -10,9 +10,9 @@ jobs:
       - checkout
       - run: echo "Hello World"
   mac-runner:
-      machine: true
-      resource_class:  myorg-namespace/mac-runner
-      steps:
+    machine: true
+    resource_class:  myorg-namespace/mac-runner
+    steps:
         - run: echo "Hello Runner"
 #   heroku/deploy-via-git:
 #     circleci_ip_ranges: true
