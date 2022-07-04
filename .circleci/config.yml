@@ -14,17 +14,11 @@ jobs:
     resource_class:  myorg-namespace/mac-runner
     steps:
         - run: echo "Hello Runner"
-#   heroku/deploy-via-git:
-#     circleci_ip_ranges: true
-#     docker:
-#       - image: cimg/node:17.3.0
-#     steps:
-#       - checkout
-#       - run: node --version
-# parameters:
-#   run-schedule:
-#     type: boolean
-#     default: false
+  runner-test:
+    machine: true
+    resource_class: myorg-namespace/test-mac
+    steps:
+      - run: echo "Hi I'm on Runners!"
 workflows:
   build_and_deploy:
     jobs:
