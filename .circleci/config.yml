@@ -9,7 +9,12 @@ jobs:
     steps:
       - checkout
       - run: echo "Hello World"
-  runner-test:
+  runner-test-one:
+    machine: true
+    resource_class: myorg-namespace/mac-runner
+    steps:
+      - run: echo "Hi I'm on Runners!"
+  runner-test-two:
     machine: true
     resource_class: myorg-namespace/macrunner-test
     steps:
@@ -18,4 +23,6 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      - runner-test
+      - runner-test-one
+      - runner-test-two
+
